@@ -10,13 +10,14 @@
     @else
         @include('livewire.agriculteur.create')
     @endif
-    <table class="table table-bordered mt-5">
+    <table class="table table-bordered mt-5" id="sampleTable">
         <thead>
             <tr>
                 <th>Agr_id</th>
                 <th>Agr_nom</th>
                 <th>Agr_prenom</th>
                 <th>Agr_resid</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -41,4 +42,13 @@
             @endforeach
         </tbody>
     </table>
+
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#sampleTable').DataTable({
+                responsive: true,
+            });
+        });
+    </script>
 </div>

@@ -26,10 +26,17 @@
                     <td>{{ $value->agr_nom }}</td>
                     <td>{{ $value->agr_prn }}</td>
                     <td>{{ $value->agr_resid }}</td>
-                    <td>
-                        <button wire:click="edit({{ $value->agr_id }})" class="btn btn-primary btn-sm">Edit</button>
-                        <button wire:click="delete({{ $value->agr_id }})" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
+                    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                        <td>
+                            <button wire:click="edit({{ $value->agr_id }})"
+                                class="btn btn-primary btn-sm">Edit</button>
+                            @if (Auth::user()->role == 'admin')
+                                <button wire:click="delete({{ $value->agr_id }})"
+                                    class="btn btn-danger btn-sm">Delete</button>
+                            @endif
+                        </td>
+                    @endif
+
                 </tr>
             @endforeach
         </tbody>

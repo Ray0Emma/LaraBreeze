@@ -18,6 +18,21 @@
                     <x-nav-link :href="route('agriculteur')" :active="request()->routeIs('agriculteur')">
                         {{ __('Agriculteur') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('agriculteur')" :active="request()->routeIs('employe')">
+                        {{ __('Employe') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('parcelles')" :active="request()->routeIs('parcelles')">
+                        {{ __('Parcelles') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tarifs')" :active="request()->routeIs('tarifs')">
+                        {{ __('Tarifs') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('intervention')" :active="request()->routeIs('intervention')">
+                        {{ __('Intervention') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('data')" :active="request()->routeIs('data')">
+                        {{ __('Data') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -31,11 +31,18 @@ class Agricultures extends Component
         $this->isOpen = false;
     }
 
+    public function cancel()
+    {
+        $this->agr_nom = '';
+        $this->agr_prn = '';
+        $this->agr_resid = '';
+    }
+
     private function resetInputFields()
     {
-        $this->title = '';
-        $this->description = '';
-        $this->post_id = '';
+        $this->agr_nom = '';
+        $this->agr_prn = '';
+        $this->agr_resid = '';
     }
 
     public function store()
@@ -69,16 +76,23 @@ class Agricultures extends Component
 
     public function update()
     {
-        Agriculteur::where('agr_id', $this->agr_id)
-            ->update([
-                'agr_nom' => $this->agr_nom,
-                'agr_prn' => $this->agr_prn,
-                'agr_resid' => $this->agr_resid
-            ]);
+        $this->validate([
+            'agr_nom' => 'required',
+            'agr_prn' => 'required',
+            'agr_resid' => 'required'
+        ]);
+
+        Agriculteur::find($this->agr_id)->update([
+            'agr_nom' => $this->agr_nom,
+            'agr_prn' => $this->agr_prn,
+            'agr_resid' => $this->agr_resid
+        ]);
     }
     public function delete($id)
     {
-        Agriculteur::find($id)->delete();
-        session()->flash('message', 'Post Deleted Successfully.');
+        if ($id) {
+            Agriculteur::find($id)->delete();
+            session()->flash('message', 'Post Deleted Successfully.');
+        }
     }
 }

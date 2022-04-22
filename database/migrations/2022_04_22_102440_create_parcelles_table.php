@@ -14,11 +14,11 @@ class CreateParcellesTable extends Migration
     public function up()
     {
         Schema::create('parcelles', function (Blueprint $table) {
-            $table->integer('par_id')->autoIncrement();
+            $table->increments('par_id');
             $table->string('emp_lieu', 15);
             $table->string('par_nom', 30);
             $table->integer('par_superficie');
-            $table->integer('par_prop');
+            $table->integer('par_prop')->unsigned();
             $table->foreign('par_prop')->references('agr_id')->on('agriculteurs')->onDelete('cascade');
             $table->timestamps();
         });

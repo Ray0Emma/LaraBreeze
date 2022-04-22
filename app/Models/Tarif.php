@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tarif extends Model
 {
     use HasFactory;
+
     public $incrementing = false;
+
     public function employe()
     {
         return $this->belongsTo(Employe::class);

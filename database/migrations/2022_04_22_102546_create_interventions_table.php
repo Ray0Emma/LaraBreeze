@@ -15,7 +15,7 @@ class CreateInterventionsTable extends Migration
     {
         Schema::create('interventions', function (Blueprint $table) {
             $table->string('int_emp_nss');
-            $table->integer('int_par_id');
+            $table->integer('int_par_id')->unsigned();
             $table->date('int_debut');
             $table->integer('int_nb_jrs');
             $table->foreign('int_emp_nss')->references('emp_nss')->on('employes')->onDelete('cascade');

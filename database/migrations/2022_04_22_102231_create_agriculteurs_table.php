@@ -14,7 +14,7 @@ class CreateAgriculteursTable extends Migration
     public function up()
     {
         Schema::create('agriculteurs', function (Blueprint $table) {
-            $table->integer('agr_id')->autoIncrement();
+            $table->increments('agr_id');
             $table->string('agr_nom', 30);
             $table->string('agr_prn', 30);
             $table->string('agr_resid', 50);

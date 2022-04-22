@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('agriculteur')" :active="request()->routeIs('agriculteur')">
                         {{ __('Agriculteur') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('agriculteur')" :active="request()->routeIs('employe')">
+                    <x-nav-link :href="route('employe')" :active="request()->routeIs('employe')">
                         {{ __('Employe') }}
                     </x-nav-link>
                     <x-nav-link :href="route('parcelles')" :active="request()->routeIs('parcelles')">

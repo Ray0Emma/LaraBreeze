@@ -9,6 +9,7 @@ class Agriculteur extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'agr_id';
     protected $fillable = [
         'agr_nom',
         'agr_prn',

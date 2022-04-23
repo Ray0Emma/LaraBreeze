@@ -29,10 +29,10 @@
                     <td>{{ $value->emp_tarif }}</td>
                     @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
                         <td>
-                            <button wire:click="edit({{ $value->emp_nss }})"
+                            <button wire:click="edit({{ json_encode($value->emp_nss) }})"
                                 class="btn btn-primary btn-sm">Edit</button>
                             @if (Auth::user()->role == 'admin')
-                                <button wire:click="delete({{ $value->emp_nss }})"
+                                <button wire:click="delete({{ json_encode($value->emp_nss) }})"
                                     class="btn btn-danger btn-sm">Delete</button>
                             @endif
                         </td>

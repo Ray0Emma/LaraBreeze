@@ -8,7 +8,7 @@ use Livewire\Component;
 class Tarifs extends Component
 {
     public $isOpen = 0;
-    public $tarif, $tar_description, $tar_ero;
+    public $tarif, $tar_description, $tar_ero, $type;
     public function render()
     {
         $this->tarif = Tarif::all();
@@ -59,7 +59,7 @@ class Tarifs extends Component
     }
     public function edit($id)
     {
-        $Tarif  = Tarif::findOrFail($id);
+        $Tarif  = Tarif::findOrFail((string)$id);
         $this->tar_description = $id;
         $this->tar_ero = $Tarif->tar_ero;
 
@@ -79,7 +79,9 @@ class Tarifs extends Component
     }
     public function delete($id)
     {
+
         if ($id) {
+            // $this->type = gettype($id);
             Tarif::find($id)->delete();
             session()->flash('message', 'tarif Deleted Successfully.');
         }

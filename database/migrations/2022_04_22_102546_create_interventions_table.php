@@ -20,7 +20,7 @@ class CreateInterventionsTable extends Migration
             $table->integer('int_nb_jrs');
             $table->foreign('int_emp_nss')->references('emp_nss')->on('employes')->onDelete('cascade');
             $table->foreign('int_par_id')->references('par_id')->on('parcelles')->onDelete('cascade');
-            $table->primary(['int_debut', 'int_emp_nss', 'int_par_id']);
+            $table->primary(['int_emp_nss', 'int_par_id']);
             $table->timestamps();
         });
     }

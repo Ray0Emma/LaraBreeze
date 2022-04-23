@@ -11,6 +11,9 @@ class Intervention extends Model
     protected $primaryKey = 'int_debut';
     public $incrementing = false;
     protected $keyType = 'date';
+
+    protected $casts = ['tar_description' => 'date'];
+
     protected $fillable = [
         'int_emp_nss',
         'int_par_id',

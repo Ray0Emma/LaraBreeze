@@ -29,11 +29,11 @@
                     <td>{{ $value->int_nb_jrs }}</td>
                     @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
                         <td>
-                            <dd>{{ $value->int_debut }}</dd>
-                            <button wire:click="edit({{ $value->int_debut }})"
+                            {{-- <dd>{{ $value->int_debut }}</dd> --}}
+                            <button wire:click="edit({{ json_encode($value->int_debut) }})"
                                 class="btn btn-primary btn-sm">Edit</button>
                             @if (Auth::user()->role == 'admin')
-                                <button wire:click="delete({{ $value->int_debut }})"
+                                <button wire:click="delete({{ json_encode($value->int_debut) }})"
                                     class="btn btn-danger btn-sm">Delete</button>
                             @endif
                         </td>

@@ -25,15 +25,15 @@
                     <td>{{ $value->tar_ero }}</td>
                     @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
                         <td>
-                            <button wire:click="edit({{ $value->tar_description }})"
+                            {{-- <dd>{{ json_encode($value->tar_description) }}</dd> --}}
+                            <button wire:click="edit({{ json_encode($value->tar_description) }})"
                                 class="btn btn-primary btn-sm">Edit</button>
                             @if (Auth::user()->role == 'admin')
-                                <button wire:click="delete({{ $value->tar_description }})"
+                                <button wire:click="delete({{ json_encode($value->tar_description) }})"
                                     class="btn btn-danger btn-sm">Delete</button>
                             @endif
                         </td>
                     @endif
-
                 </tr>
             @endforeach
         </tbody>

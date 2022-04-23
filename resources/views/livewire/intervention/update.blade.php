@@ -1,23 +1,24 @@
 <form>
     <div class="form-group">
-        <input type="hidden" wire:model="agr_id">
-        <label for="exampleFormControlInput1">Agr_Nom</label>
-        <input type="agr_nom" class="form-control" wire:model="agr_nom" id="exampleFormControlInput1">
-        @error('agr_nom')
+        <input type="hidden" wire:model="int_debut">
+        <label for="exampleFormControlInput1">Int emp nss</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Title"
+            wire:model="int_emp_nss">
+        @error('int_emp_nss')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput2">Agr_Prenom</label>
-        <input type="text" class="form-control" wire:model="agr_prn" id="exampleFormControlInput2">
-        @error('agr_prn')
+        <label for="exampleFormControlInput2">Int par id</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2" wire:model="int_par_id">
+        @error('int_par_id')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput3">Agr_Resid</label>
-        <input type="text" class="form-control" wire:model="agr_resid" id="exampleFormControlInput3">
-        @error('agr_resid')
+        <label for="exampleFormControlInput3">Int nb jrs</label>
+        <input type="text" class="form-control" id="exampleFormControlInput3" wire:model="int_nb_jrs">
+        @error('int_nb_jrs')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>

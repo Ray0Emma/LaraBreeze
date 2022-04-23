@@ -9,7 +9,9 @@ class Tarif extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'tar_description';
     public $incrementing = false;
+    protected $keyType = 'string';
 
     public function employe()
     {

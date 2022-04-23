@@ -14,7 +14,7 @@ class CreateEmployesTable extends Migration
     public function up()
     {
         Schema::create('employes', function (Blueprint $table) {
-            $table->string('emp_nss', 15)->index();
+            $table->string('emp_nss', 15)->primary();
             $table->string('emp_nom', 30);
             $table->string('emp_prn', 30);
             $table->string('emp_tarif');

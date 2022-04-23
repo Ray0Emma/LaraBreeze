@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Employe extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'emp_nss';
     public $incrementing = false;
-    public $keyType = 'string';
+    protected $keyType = 'string';
 
     protected $fillable = [
         'emp_nss',

@@ -9,6 +9,14 @@ class Employe extends Model
 {
     use HasFactory;
     public $incrementing = false;
+    public $keyType = 'string';
+
+    protected $fillable = [
+        'emp_nss',
+        'emp_nom',
+        'emp_prn',
+        'emp_tarif',
+    ];
 
     public function parcelles()
     {

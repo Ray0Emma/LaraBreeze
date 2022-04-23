@@ -1,23 +1,23 @@
 <form>
     <div class="form-group">
-        <input type="hidden" wire:model="emp_nss">
-        <label for="exampleFormControlInput1">Emp_nom</label>
-        <input type="emp_nom" class="form-control" wire:model="emp_nom" id="exampleFormControlInput1">
-        @error('emp_nom')
+        <input type="hidden" wire:model="agr_id">
+        <label for="exampleFormControlInput1">Agr_Nom</label>
+        <input type="agr_nom" class="form-control" wire:model="agr_nom" id="exampleFormControlInput1">
+        @error('agr_nom')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>
     <div class="form-group">
         <label for="exampleFormControlInput2">Agr_Prenom</label>
-        <input type="text" class="form-control" wire:model="emp_prn" id="exampleFormControlInput2">
-        @error('emp_prn')
+        <input type="text" class="form-control" wire:model="agr_prn" id="exampleFormControlInput2">
+        @error('agr_prn')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput3">Emp_tarif</label>
-        <input type="text" class="form-control" wire:model="emp_tarif" id="exampleFormControlInput3">
-        @error('emp_tarif')
+        <label for="exampleFormControlInput3">Agr_Resid</label>
+        <input type="text" class="form-control" wire:model="agr_resid" id="exampleFormControlInput3">
+        @error('agr_resid')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>

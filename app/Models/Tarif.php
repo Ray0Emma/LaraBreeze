@@ -13,6 +13,11 @@ class Tarif extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
+    protected $fillable = [
+        'tar_description',
+        'tar_ero',
+    ];
+
     public function employe()
     {
         return $this->belongsTo(Employe::class);

@@ -6,6 +6,9 @@ use App\Http\Livewire\AdminDashboard;
 use App\Http\Livewire\Agricultures;
 use App\Http\Livewire\EditorDashboard;
 use App\Http\Livewire\Employes;
+use App\Http\Livewire\Intervention;
+use App\Http\Livewire\Parcelles;
+use App\Http\Livewire\Tarifs;
 use App\Http\Livewire\ViewerDashboard;
 
 /*
@@ -40,9 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/adminDashboard', AdminDashboard::class)->name('dashboard');
         Route::get('/admin_agriculteur', Agricultures::class)->name('agriculteur');
         Route::get('/admin_employe', Employes::class)->name('employe');
-        Route::get('/admin_parcelles', Agricultures::class)->name('parcelles');
-        Route::get('/admin_tarifs', Agricultures::class)->name('tarifs');
-        Route::get('/admin_intervention', Agricultures::class)->name('intervention');
+        Route::get('/admin_parcelles', Parcelles::class)->name('parcelles');
+        Route::get('/admin_tarifs', Tarifs::class)->name('tarifs');
+        Route::get('/admin_intervention', Intervention::class)->name('intervention');
         Route::get('/admin_data', Agricultures::class)->name('data');
     });
     Route::group(['middleware' => 'checkRole:editor'], function () {

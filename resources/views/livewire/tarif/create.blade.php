@@ -1,23 +1,17 @@
 <form>
     <div class="form-group">
-        <label for="exampleFormControlInput1">Agriculteur nom</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Title"
-            wire:model="agr_nom">
-        @error('agr_nom')
+        <label for="exampleFormControlInput1">Tarif description</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter tar description"
+            wire:model="tar_description">
+        @error('tar_description')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="exampleFormControlInput2">Agriculteur prenom </label>
-        <input type="text" class="form-control" id="exampleFormControlInput2" wire:model="agr_prn">
-        @error('agr_prn')
-            <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlInput3">Agriculteur Residance</label>
-        <input type="text" class="form-control" id="exampleFormControlInput3" wire:model="agr_resid">
-        @error('agr_resid')
+        <label for="exampleFormControlInput1">Tarif ero</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter tar ero"
+            wire:model="tar_ero">
+        @error('tar_ero')
             <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>

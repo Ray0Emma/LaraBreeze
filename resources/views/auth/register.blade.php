@@ -34,7 +34,6 @@
                     class="block rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                     required>
                     <option value=""> </option>
-                    <option value="admin"> Admin</option>
                     <option value="editor"> Editor </option>
                     <option value="viewer"> Viewer </option>
                 </select>

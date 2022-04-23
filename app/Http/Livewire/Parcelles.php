@@ -4,14 +4,16 @@ namespace App\Http\Livewire;
 
 use App\Models\Parcelle;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Parcelles extends Component
 {
     public $isOpen = 0;
-    public $parcelle, $par_id, $emp_lieu, $par_nom, $par_superficie, $par_prop;
+    public $parcelle, $agr, $par_id, $emp_lieu, $par_nom, $par_superficie, $par_prop;
     public function render()
     {
         $this->parcelle = Parcelle::all();
+        $this->agr = DB::table('agriculteurs')->get();
         return view('livewire.parcelles');
     }
 

@@ -3,15 +3,19 @@
 namespace App\Http\Livewire;
 
 use App\Models\Employe;
+use App\Models\Tarif;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Employes extends Component
 {
     public $isOpen = 0;
-    public $employe, $emp_nss, $emp_nom, $emp_prn, $emp_tarif;
+    public $employe, $tarif, $emp_nss, $emp_nom, $emp_prn, $emp_tarif;
     public function render()
     {
         $this->employe = Employe::all();
+        $this->tarif = DB::table('tarifs')->get();
+
         return view('livewire.employes');
     }
     public function create()

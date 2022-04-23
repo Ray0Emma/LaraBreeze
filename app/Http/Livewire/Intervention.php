@@ -4,14 +4,17 @@ namespace App\Http\Livewire;
 
 use App\Models\Intervention as ModelsIntervention;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Intervention extends Component
 {
     public $isOpen = 0;
-    public $intervention, $int_debut, $int_emp_nss, $int_par_id, $int_nb_jrs;
+    public $intervention, $emp, $parc, $int_debut, $int_emp_nss, $int_par_id, $int_nb_jrs;
     public function render()
     {
         $this->intervention = ModelsIntervention::all();
+        $this->emp = DB::table('employes')->get();
+        $this->parc = DB::table('parcelles')->get();
         return view('livewire.intervention');
     }
 

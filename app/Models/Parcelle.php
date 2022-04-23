@@ -13,6 +13,7 @@ class Parcelle extends Model
         'par_nom',
         'emp_lieu',
         'par_superficie',
+        'par_prop',
     ];
     public function agriculteurs()
     {

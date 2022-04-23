@@ -5,10 +5,12 @@
             {{ __('Interventions') }}
         </h2>
     </x-slot>
-    @if ($isOpen)
-        @include('livewire.intervention.update')
-    @else
-        @include('livewire.intervention.create')
+    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+        @if ($isOpen)
+            @include('livewire.intervention.update')
+        @else
+            @include('livewire.intervention.create')
+        @endif
     @endif
     <table class="table table-bordered mt-5" id="sampleTable">
         <thead>
@@ -17,7 +19,9 @@
                 <th>Int emp nss</th>
                 <th>Int par id</th>
                 <th>Int nb jrs</th>
-                <th>Action</th>
+                @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                    <th>Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>

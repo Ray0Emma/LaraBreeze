@@ -5,17 +5,21 @@
             {{ __('Tarifs') }}
         </h2>
     </x-slot>
-    @if ($isOpen)
-        @include('livewire.tarif.update')
-    @else
-        @include('livewire.tarif.create')
+    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+        @if ($isOpen)
+            @include('livewire.tarif.update')
+        @else
+            @include('livewire.tarif.create')
+        @endif
     @endif
     <table class="table table-bordered mt-5" id="sampleTable">
         <thead>
             <tr>
                 <th>Tarif description</th>
                 <th>Tarif ero</th>
-                <th>Action</th>
+                @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                    <th>Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>

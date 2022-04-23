@@ -5,10 +5,12 @@
             {{ __('Agricultures') }}
         </h2>
     </x-slot>
-    @if ($isOpen)
-        @include('livewire.agriculteur.update')
-    @else
-        @include('livewire.agriculteur.create')
+    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+        @if ($isOpen)
+            @include('livewire.agriculteur.update')
+        @else
+            @include('livewire.agriculteur.create')
+        @endif
     @endif
     <table class="table table-bordered mt-5" id="sampleTable">
         <thead>
@@ -17,7 +19,9 @@
                 <th>Agr_nom</th>
                 <th>Agr_prenom</th>
                 <th>Agr_resid</th>
-                <th>Action</th>
+                @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                    <th>Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>

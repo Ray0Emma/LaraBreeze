@@ -4,10 +4,12 @@
             {{ __('Parcelles') }}
         </h2>
     </x-slot>
-    @if ($isOpen)
-        @include('livewire.parcelle.update')
-    @else
-        @include('livewire.parcelle.create')
+    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+        @if ($isOpen)
+            @include('livewire.parcelle.update')
+        @else
+            @include('livewire.parcelle.create')
+        @endif
     @endif
     <table class="table table-bordered mt-5" id="sampleTable">
         <thead>
@@ -17,7 +19,9 @@
                 <th>Parcelle nom</th>
                 <th>Parcelle superficie</th>
                 <th>Parcelle prop</th>
-                <th>Action</th>
+                @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                    <th>Action</th>
+                @endif
             </tr>
         </thead>
         <tbody>

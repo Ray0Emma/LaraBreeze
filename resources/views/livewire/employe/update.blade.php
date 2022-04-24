@@ -6,13 +6,6 @@
     </x-slot>
     <form>
         <div>
-            <x-label for="exampleFormControlInput1">Employe nss</x-label>
-            <x-input type="text" class="block mt-1 w-full" id="exampleFormControlInput1" wire:model="emp_nss" />
-            @error('emp_nss')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-        <div>
             <x-label for="exampleFormControlInput1">Employe nom</x-label>
             <x-input type="text" class="block mt-1 w-full" id="exampleFormControlInput1" wire:model="emp_nom" />
             @error('emp_nom')

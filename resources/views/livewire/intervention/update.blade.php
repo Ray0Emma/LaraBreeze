@@ -6,13 +6,6 @@
     </x-slot>
     <form>
         <div>
-            <x-label for="exampleFormControlx-input1">Int debut</x-label>
-            <x-input class="mt-1 w-full" type="text" id="exampleFormControlx-input1" wire:model="int_debut" />
-            @error('int_debut')
-                <span class="text-rose-700">{{ $message }}</span>
-            @enderror
-        </div>
-        <div>
             <x-label for="tarif" class="block mt-3 mb-1 font-medium text-sm text-gray-700">Employe Tarif</x-label>
             <select name="tarif" id="tarif" style="width: 100%;" wire:model="int_emp_nss"
                 class="block rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"

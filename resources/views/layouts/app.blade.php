@@ -38,7 +38,7 @@
         </header>
 
         <!-- Page Content -->
-        <main class="container">
+        <main class="">
             {{ $slot }}
         </main>
     </div>

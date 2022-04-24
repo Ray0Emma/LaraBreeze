@@ -9,6 +9,7 @@ use App\Http\Livewire\Employes;
 use App\Http\Livewire\Intervention;
 use App\Http\Livewire\Parcelles;
 use App\Http\Livewire\Tarifs;
+use App\Http\Livewire\Users;
 use App\Http\Livewire\ViewerDashboard;
 
 /*
@@ -41,6 +42,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'checkRole:admin'], function () {
         Route::get('/adminDashboard', AdminDashboard::class)->name('dashboard');
+        Route::get('/users', Users::class)->name('users');
     });
     Route::group(['middleware' => 'checkRole:admin|checkRole:editor|checkRole:viewer'], function () {
         Route::get('/admin_agriculteur', Agricultures::class)->name('agriculteur');

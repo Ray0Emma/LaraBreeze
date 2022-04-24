@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 use App\Http\Livewire\AdminDashboard;
 use App\Http\Livewire\Agricultures;
+use App\Http\Livewire\Data;
 use App\Http\Livewire\EditorDashboard;
 use App\Http\Livewire\Employes;
 use App\Http\Livewire\Intervention;
@@ -27,30 +28,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
-
 require __DIR__ . '/auth.php';
 
 Route::group(['middleware' => 'auth'], function () {
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
-
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
 
     Route::group(['middleware' => 'checkRole:admin'], function () {
-        Route::get('/adminDashboard', AdminDashboard::class)->name('dashboard');
-        Route::get('/users', Users::class)->name('users');
+        Route::get('/adminDashboard', AdminDashboard::class)->name('adminDashboard');
+        Route::get('/admin/users', Users::class)->name('users');
     });
     Route::group(['middleware' => 'checkRole:admin|checkRole:editor|checkRole:viewer'], function () {
-        Route::get('/admin_agriculteur', Agricultures::class)->name('agriculteur');
-        Route::get('/admin_employe', Employes::class)->name('employe');
-        Route::get('/admin_parcelles', Parcelles::class)->name('parcelles');
-        Route::get('/admin_tarifs', Tarifs::class)->name('tarifs');
-        Route::get('/admin_intervention', Intervention::class)->name('intervention');
-        Route::get('/admin_data', Agricultures::class)->name('data');
+        Route::get('/agriculteur', Agricultures::class)->name('agriculteur');
+        Route::get('/employe', Employes::class)->name('employe');
+        Route::get('/parcelles', Parcelles::class)->name('parcelles');
+        Route::get('/tarifs', Tarifs::class)->name('tarifs');
+        Route::get('/intervention', Intervention::class)->name('intervention');
+        Route::get('/data', Data::class)->name('data');
     });
     Route::group(['middleware' => 'checkRole:editor'], function () {
         Route::get('/editorDashboard', EditorDashboard::class)->name('editorDashboard');

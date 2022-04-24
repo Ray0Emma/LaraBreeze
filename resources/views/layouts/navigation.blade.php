@@ -12,9 +12,23 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    @if (Auth::user()->role == 'admin')
+                        <x-nav-link :href="route('adminDashboard')" :active="request()->routeIs('adminDashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @elseif (Auth::user()->role == 'editor')
+                        <x-nav-link :href="route('editorDashboard')" :active="request()->routeIs('editorDashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @elseif (Auth::user()->role == 'viewer')
+                        <x-nav-link :href="route('viewerDashboard')" :active="request()->routeIs('viewerDashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-nav-link>
+                    @endif
                     <x-nav-link :href="route('agriculteur')" :active="request()->routeIs('agriculteur')">
                         {{ __('Agriculteur') }}
                     </x-nav-link>

@@ -5,50 +5,65 @@
             {{ __('Interventions') }}
         </h2>
     </x-slot>
-    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
-        @if ($isOpen)
-            @include('livewire.intervention.update')
-        @else
-            @include('livewire.intervention.create')
+    <div class="container mx-auto">
+        @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+            @if ($isOpen)
+                @include('livewire.intervention.update')
+            @else
+                @include('livewire.intervention.create')
+            @endif
         @endif
-    @endif
-    <table class="table table-bordered mt-5" id="sampleTable">
-        <thead>
-            <tr>
-                <th>Int debut</th>
-                <th>Int emp nss</th>
-                <th>Int par id</th>
-                <th>Int nb jrs</th>
-                @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
-                    <th>Action</th>
-                @endif
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($intervention as $value)
-                <tr>
-                    <td>{{ $value->int_debut }}</td>
-                    <td>{{ $value->int_emp_nss }}</td>
-                    <td>{{ $value->int_par_id }}</td>
-                    <td>{{ $value->int_nb_jrs }}</td>
-                    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
-                        <td>
-                            {{-- <dd>{{ $value->int_debut }}</dd> --}}
-                            <button wire:click="edit({{ json_encode($value->int_debut) }})"
-                                class="btn btn-primary btn-sm">Edit</button>
-                            @if (Auth::user()->role == 'admin')
-                                <button wire:click="delete({{ json_encode($value->int_debut) }})"
-                                    class="btn btn-danger btn-sm">Delete</button>
-                            @endif
-                        </td>
-                    @endif
+        <div class="flex flex-col">
+            <div class="w-full">
+                <div class="p-4 border-b border-gray-200 shadow flex justify-center">
+                    <table class="p-4" id="sampleTable">
+                        <thead>
+                            <tr class="whitespace-nowrap">
+                                <th class="p-8 text-xs text-gray-500">Int debut</th>
+                                <th class="p-8 text-xs text-gray-500">Int emp nss</th>
+                                <th class="p-8 text-xs text-gray-500">Int par id</th>
+                                <th class="p-8 text-xs text-gray-500">Int nb jrs</th>
+                                @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                                    <th class="p-8 text-xs text-gray-500">Action</th>
+                                @endif
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            @foreach ($intervention as $value)
+                                <tr class="whitespace-nowrap">
 
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+                                    <td class="px-6 py-4 text-sm text-center text-gray-500">{{ $value->int_debut }}
+                                    </td>
 
-    </script>
+                                    <td class="px-6 py-4 text-sm text-center text-gray-500">{{ $value->int_emp_nss }}
+                                    </td>
+
+                                    <td class="px-6 py-4 text-sm text-center text-gray-500">{{ $value->int_par_id }}
+                                    </td>
+
+                                    <td class="px-6 py-4 text-sm text-center text-gray-500">{{ $value->int_nb_jrs }}
+                                    </td>
+                                    @if (Auth::user()->role == 'editor' || Auth::user()->role == 'admin')
+                                        <td class="px-6 py-4 text-sm text-center text-gray-500">
+                                            {{-- <dd>{{ $value->int_debut }}</dd> --}}
+                                            <x-button wire:click="edit({{ json_encode($value->int_debut) }})">Edit
+                                            </x-button>
+                                            @if (Auth::user()->role == 'admin')
+                                                <x-button wire:click="delete({{ json_encode($value->int_debut) }})"
+                                                    class="text-sm text-gray bg-red-400 rounded">Delete</x-button>
+                                            @endif
+                                        </td>
+                                    @endif
+
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $(document).ready(function() {
             $('#sampleTable').DataTable({

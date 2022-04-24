@@ -12,7 +12,7 @@ class Intervention extends Model
     public $incrementing = false;
     protected $keyType = 'date';
 
-    protected $casts = ['tar_description' => 'date'];
+    protected $casts = ['int_debut' => 'datetime:yyyy-MM-dd'];
 
     protected $fillable = [
         'int_emp_nss',
